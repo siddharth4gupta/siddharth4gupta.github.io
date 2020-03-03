@@ -92,40 +92,38 @@
 	<div id="dropDownSelect1"></div>
 <!--===============================================================================================-->
 	<script>
-		 
+		  var video = document.getElementById('video');
+		  var width = video.getAttribute("width");
+		  var height = video.getAttribute("height");
 
-		if (typeof CitrixBcrApi === 'undefined' || CitrixBcrApi === null)
-		{
-						console.log("NOT running in a BCR-capable environment");
-		} else {
-						console.log("Running in a BCR-capable environment");
-						var bcrRedirectionDecision1 = CitrixBcrApi.getBcrDecision();
-						bcrRedirectionDecision1.then(function(decision) {
-										if(decision == true) {
-														console.log("This page is BCR redirected");
-														stop();
-										} else {
-														var video = document.getElementById('video');
-														var width = video.getAttribute("width");
-														var height = video.getAttribute("height");
-														var canvas = document.getElementById('canvas');
-														var context = canvas.getContext('2d');
-														var streaming = false;
-														var signUpBtn = document.getElementById('signUpButton');
-													
-														if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-															navigator.mediaDevices.getUserMedia({ video: true, audio: false })
-															.then(function(stream) {
-																video.srcObject = stream;
-																video.play();
-															})
-															.catch(function(err) {
-																console.log("An error occurred: " + err);
-															});
-														}
-														console.log("This page is NOT BCR redirected");
-										}
-						});
+
+		if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+			navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+			.then(function(stream) {
+				video.srcObject = stream;
+				 video.onloadedmetadata = function(e) {
+					video.play();
+  };
+			})
+			.catch(function(err) {
+				console.log("An error occurred: " + err);
+			});
+		}
+
+                        if (typeof CitrixBcrApi === 'undefined' || CitrixBcrApi === null)
+                        {
+                                        console.log("NOT running in a BCR-capable environment");
+                        } else {
+                                        console.log("Running in a BCR-capable environment");
+                                        var bcrRedirectionDecision1 = CitrixBcrApi.getBcrDecision();
+                                        bcrRedirectionDecision1.then(function(decision) {
+                                                        if(decision == true) {
+                                                                        console.log("This page is BCR redirected");
+                                                                        stop();
+                                                        } else {
+                                                                        console.log("This page is NOT BCR redirected");
+                                                        }
+                                        });
                         }
                 function stop() {
                   if(!video === null)
