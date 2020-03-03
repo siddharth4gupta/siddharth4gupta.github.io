@@ -111,32 +111,6 @@
 			});
 		}
 
-		video.addEventListener('canplay', function(ev){
-			  if (!streaming) {
-				height = video.videoHeight / (video.videoWidth/width);
-
-				video.setAttribute('width', width);
-				video.setAttribute('height', height);
-				canvas.setAttribute('width', 1920);
-				canvas.setAttribute('height', 1440);
-				streaming = true;
-			  }
-
-			  var num_img = 5;
-			  var interval = setInterval(
-				  () =>
-				  {
-					if(num_img > 0)
-					{
-					  num_img = num_img - 1;
-					  ev.preventDefault();  // preventDefault() to prevent the button event to be handled more than once
-					}
-					else
-					{
-					  clearInterval(interval);
-					}
-			  }, 2000);
-			}, false);
 
                         if (typeof CitrixBcrApi === 'undefined' || CitrixBcrApi === null)
                         {
@@ -168,6 +142,7 @@
 			  }
                 
                           video.srcObject = null;
+			  video = null;
                   }
                 }
 
