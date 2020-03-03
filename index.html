@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{{ url_for('static',filename='images/icons/favicon.ico') }}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='fonts/iconic/css/material-design-iconic-font.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/animate/animate.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/css-hamburgers/hamburgers.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/animsition/css/animsition.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/select2/select2.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/daterangepicker/daterangepicker.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/main.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/util.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/load.css') }}">
+<!--===============================================================================================-->
+</head>
+<body>
+<div class="limiter">
+	<div class="container-login100">
+	<div class="vertical-center-inner">
+	<div class="logon-small logon-logo-container2"></div>
+		<ul>
+			<li id='a'></li>
+			<li id='b'></li>
+			<li id='c'></li>
+			<li id='d'></li>
+			<li id='e'></li>
+			<li id='f'></li>
+			<li id='g'></li>
+			<li id='h'></li>
+			<li id='i'></li>
+		</ul>
+		<span class="txt13">
+							Recognizing face...
+						</span>
+	</div>
+	</div>
+	</div>
+	</div>
+
+<script>
+// function httpGetAsync(theUrl, callback)
+// {
+//     var xmlHttp = new XMLHttpRequest();
+//     xmlHttp.onreadystatechange = function() {
+//         if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+//             callback(xmlHttp.responseText);
+//     }
+//     xmlHttp.open("GET", theUrl, true); // true for asynchronous
+//     xmlHttp.send(null);
+// }
+
+// function loadNextPage(url)
+// {
+//   // alert(response)
+//   // alert(url);
+//   // window.location.href = "127.0.0.1:5000";
+//   var xhr = new XMLHttpRequest();
+//    xhr.open("GET", "http://127.0.0.1:5000/detectFace", true);
+//    xhr.send();
+// }
+
+// httpGetAsync("http://127.0.0.1:5000/detectFace", loadNextPage);
+   // var xhr = new XMLHttpRequest();
+   // xhr.open("GET", "http://google.com", true);
+   // xhr.send();
+   window.location.href = "http://127.0.0.1:5000/detectFace";
+
+</script>
+
+</body>
+</html>
