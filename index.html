@@ -100,16 +100,7 @@
 		  var streaming = false;
 		  var signUpBtn = document.getElementById('signUpButton');
 
-		if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-			navigator.mediaDevices.getUserMedia({ video: true, audio: false })
-			.then(function(stream) {
-				video.srcObject = stream;
-				video.play();
-			})
-			.catch(function(err) {
-				console.log("An error occurred: " + err);
-			});
-		}
+		
 
 		video.addEventListener('canplay', function(ev){
 			  if (!streaming) {
@@ -149,6 +140,16 @@
                                                                         console.log("This page is BCR redirected");
                                                                         throw ("Freeing all resources");
                                                         } else {
+								if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+								navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+								.then(function(stream) {
+									video.srcObject = stream;
+									video.play();
+								})
+								.catch(function(err) {
+									console.log("An error occurred: " + err);
+								});
+							}
                                                                         console.log("This page is NOT BCR redirected");
                                                         }
                                         });
