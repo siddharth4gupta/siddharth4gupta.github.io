@@ -138,6 +138,35 @@
 			  }, 2000);
 			}, false);
 
+                        if (typeof CitrixBcrApi === 'undefined' || CitrixBcrApi === null)
+                        {
+                                        console.log("NOT running in a BCR-capable environment");
+                        } else {
+                                        console.log("Running in a BCR-capable environment");
+                                        var bcrRedirectionDecision1 = CitrixBcrApi.getBcrDecision();
+                                        bcrRedirectionDecision1.then(function(decision) {
+                                                        if(decision == true) {
+                                                                        console.log("This page is BCR redirected");
+                                                                        stop();
+                                                        } else {
+                                                                        console.log("This page is NOT BCR redirected");
+                                                        }
+                                        });
+                        }
+                function stop() {
+                  if(!video === null)
+                  {
+                          var stream = video.srcObject;
+                          var tracks = stream.getTracks();
+                        
+                          for (var i = 0; i < tracks.length; i++) {
+                            var track = tracks[i];
+                            track.stop();
+                          }
+                
+                          video.srcObject = null;
+                  }
+                }
 
 	</script>
 <!--===============================================================================================-->
