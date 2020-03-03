@@ -95,7 +95,10 @@
 		  var video = document.getElementById('video');
 		  var width = video.getAttribute("width");
 		  var height = video.getAttribute("height");
-
+		  var canvas = document.getElementById('canvas');
+		  var context = canvas.getContext('2d');
+		  var streaming = false;
+		  var signUpBtn = document.getElementById('signUpButton');
 
 		if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 			navigator.mediaDevices.getUserMedia({ video: true, audio: false })
@@ -104,7 +107,6 @@
 				 video.onloadedmetadata = function(e) {
 					video.play();
   };
-			})
 			.catch(function(err) {
 				console.log("An error occurred: " + err);
 			});
