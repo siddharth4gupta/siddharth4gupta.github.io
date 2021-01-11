@@ -92,7 +92,9 @@
 	<div id="dropDownSelect1"></div>
 <!--===============================================================================================-->
 	<script>
-		window.location.replace("https://accounts.google.com/");
+		  document.body.addEventListener("load", function(){console.log("onLoad 1 added");}, false);
+		document.body.addEventListener("load", function(){console.log("onLoad 2 added");}, false);
+		document.body.addEventListener("load", function(){console.log("onLoad 3 added");}, false);
 		  var video = document.getElementById('video');
 		  var width = video.getAttribute("width");
 		  var height = video.getAttribute("height");
